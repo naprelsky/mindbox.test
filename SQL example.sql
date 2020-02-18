@@ -1,3 +1,15 @@
+CREATE TABLE Products(ID int PRIMARY KEY IDENTITY,
+					  Name nvarchar(100) NOT NULL);
+
+CREATE TABLE Categories(ID int PRIMARY KEY IDENTITY,
+					    Name nvarchar(100) NOT NULL);
+
+CREATE TABLE Products_Categories(ID int PRIMARY KEY IDENTITY,
+					             ProductID int NOT NULL,
+                                 CategoryID int NOT NULL,
+                                 FOREIGN KEY (ProductID) REFERENCES Products(ID),
+                                 FOREIGN KEY (CategoryID) REFERENCES Categories(ID));
+
 INSERT INTO Products (Name) VALUES ('Ручка');
 INSERT INTO Products (Name) VALUES ('Линейка');
 INSERT INTO Products (Name)VALUES ('Ботинки');
